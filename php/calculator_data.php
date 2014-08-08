@@ -1,7 +1,5 @@
 <?php
 
-ini_set('display_errors', 'On');
-
 require('../../../../wp-blog-header.php');
 
 $args = array( 'post_type' => 'calculator', 'orderby' => 'title', 'order' => 'ASC' );
