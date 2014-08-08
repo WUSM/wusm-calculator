@@ -1,0 +1,157 @@
+.group {
+	content: "";
+	display: table;
+	clear: both;
+}
+.calculator {
+	max-width: 600px;
+	margin: 40px auto;
+	min-height: 550px;
+}
+.select-group {
+	margin-bottom: 15px;
+	width: 100%;
+}
+.calculator label {
+	display: block;
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 14px;
+	color: #4d4d4d;
+	line-height: 2;
+	cursor: default;
+}
+.calculator select {
+	display: block;
+	font-family: Arial, sans-serif;
+	width: 100%;
+	height: 34px;
+	padding: 6px 12px;
+	font-size: 14px;
+	line-height: 1.42857143;
+	color: #555;
+	background-color: #fff;
+	background-image: none;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	cursor: pointer;
+}
+.calculator select:focus {
+	border-color: #66afe9;
+	outline: 0;
+}
+.calculator h1 {
+	font-size: 20px;
+	font-family: Arial, sans-serif;
+	padding: 25px 0;
+	clear: both;
+	font-weight: normal;
+}
+.calculator h2 {
+	margin-top: 10px;
+}
+.programyear {
+	margin-bottom: 50px;
+}
+.edit-link {
+	cursor: pointer;
+}
+.row {
+	border-bottom: 1px solid lightgrey;
+	width: 100%;
+}
+.cost-name {
+	width: 75%;
+	float: left;
+	padding: 10px 0;
+}
+.cost-amount {
+	width: 15%;
+	float: left;
+	padding: 10px 0;
+}
+.edit {
+	float: left;
+	width: 10%;
+	padding: 10px 0;
+	text-align: right;
+}
+.edit-pane {
+	clear: both;
+	padding: 0;
+	background: #fff;
+	border-bottom: 1px solid lightgrey;
+	padding-bottom: 15px;
+}
+.edit-pane h3 {
+	padding: 15px 15px 10px;
+	margin: 0;
+	font-weight: normal;
+	font-style: italic;
+	font-size: 1em;
+}
+.edit-pane h3 + p {
+	margin-top: 0;
+}
+.edit-pane p {
+	padding: 0 15px 5px;
+}
+.edit-pane-input {
+	width: 100%;
+	padding: 10px 15px;
+}
+.edit-pane label {
+	float: left;
+	width: 30%;
+	line-height: 2;
+}
+.edit-pane input {
+	float: left;
+	width: 40%;
+	height: 23px;
+}
+.total {
+	clear: both;
+	padding: 10px 0;
+	width: 100%;
+}
+.total-name {
+	font-weight: bold;
+	float: left;
+	width: 75%;
+}
+.total-amount {
+	width: 25%;
+	float: left;
+	font-weight: bold;
+}
+.add-more-name {
+	padding: 10px 0;
+	border-bottom: 1px solid lightgrey;
+	width: 100%;
+}
+.add-more-pane {
+	padding: 0;
+	background: #fff;
+	border-bottom: 1px solid lightgrey;
+	padding-bottom: 15px;
+}
+.add-more-pane p {
+	padding: 10px 15px;
+}
+.add-more-link {
+	cursor: pointer;
+}
+.add-more-input {
+	width: 100%;
+	padding: 10px 15px;
+}
+.add-more label {
+	float: left;
+	width: 30%;
+	line-height: 2;
+}
+.add-more input {
+	float: left;
+	height: 23px;
+	width: 40%;
+}
