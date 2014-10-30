@@ -16,45 +16,114 @@ $data_query = new WP_Query( $args );
 			<?php $i = 1; ?>
 			<?php if( have_rows('costs') ):
 				  while ( have_rows('costs') ) : the_row(); ?>
-			<div class="row group">
-				<div class="cost-name"><?php the_sub_field('name'); ?></div>
+			
 			    	<?php if( get_sub_field('editable') ) { ?>
-						<?php $number = get_sub_field('expense');
-				    	$amount = number_format ($number, 0, '.', ','); ?>
-				        <div class="cost-amount sum" id="<?php the_sub_field('expense'); ?>"><?php echo $number; ?></div>
-				        <div class="edit"><a id="<?php echo $i; ?>" class="edit-link">edit</a></div>
+			    	<div class="row group editable" id="<?php the_sub_field('expense'); ?>" data-id="<?php echo $i; ?>">
+			    		<div class="row-content">
+						<div class="cost-name"><?php the_sub_field('name'); ?></div><?php $number = get_sub_field('expense'); $amount = number_format ($number, 0, '.', ','); ?><div class="cost-amount sum field-<?php echo $i; ?>" id="<?php the_sub_field('expense'); ?>"><?php echo $number; ?></div><div class="edit"><a id="<?php echo $i; ?>" class="edit-value">edit</a></div>
 				        </div>
-			        	<div id="slide-<?php echo $i; ?>" class="edit-pane" colspan="3">
-			        		<div class="edit-pane-content">
+			        	<div id="slide-<?php echo $i; ?>" class="edit-pane">
+			        		<div class="edit-pane-content" id="<?php the_sub_field('expense'); ?>">
+			        			
+			        		<?php if( have_rows('editable_fields') ) : ?>
 			        			<h3>Enter your yearly cost for:</h3>
-			        			<div class="edit-pane-input group"><label type="range" for="field">Food</label><input id="field"></div>
-			        			<div class="edit-pane-input group"><label for="field">Clothes</label><input id="field"></div>
-			        			<div class="edit-pane-input group"><label for="field">Entertainment</label><input id="field"></div>
-			        			<div class="edit-pane-input group"><label for="field">Laundry</label><input id="field"></div>
-			        			<div class="edit-pane-input group"><label for="field">Other</label><input id="field"></div>
+			        			<?php $field_value = 1; ?>
+			        				<?php while ( have_rows('editable_fields') ) : the_row(); ?>
+			        				<div class="edit-pane-input group"><label for="field-<?php echo $i; ?>-<?php echo $field_value; ?>"><?php the_sub_field('name'); ?></label><input id="field-<?php echo $i; ?>-<?php echo $field_value; ?>" class="field" maxlength="5" inputmode="numeric" pattern="[0-9]*"></div>
+			        				<?php $field_value++; ?>
+			        			<?php endwhile; ?>
+			        			<?php else : ?>
+			        				<h3>Enter new amount:</h3>
+			        					<div class="edit-pane-input group">
+			        						<input class="field" maxlength="5" inputmode="numeric" pattern="[0-9]*">
+			        					</div>
+			        			<?php endif; ?>
 			        		</div>
+			        		<div class="close"><a class="close-button" id="<?php echo $i; ?>">close</a></div>
+			        	</div>
 			        	</div>
 				        <?php $i++; ?>
 				    <?php } else { ?>
+				    <div class="row group">
+				<div class="cost-name"><?php the_sub_field('name'); ?></div>
 				    	<?php $number = get_sub_field('expense');
 				    	$amount = number_format ($number, 0, '.', ','); ?>
 				        <div id="<?php the_sub_field('expense'); ?>" class="cost-amount sum"><?php echo $number; ?></div>
-				        <div></div>
 				        </div>
 				    <?php } ?>
 				<?php endwhile; endif; ?>
-				<div class="add-more">
-					<a class="add-more-link"><div class="add-more-name">+ Add more expenses</div></a>
-					<div class="add-more-pane">
-						<div style="padding-top:20px;" class="add-more-input group"><label for="field">Transportation</label><input id="field"></div>
-						<div class="add-more-input group"><label for="field">Debt Repayment</label><input id="field"></div>
-						<div class="add-more-input group"><label for="field">Other Expenses</label><input id="field"></div>
-					</div>
+				<div class="row group editable" id="0" data-id="100">
+				<div class="row-content">
+					<div class="cost-name">Other</div><div id="0" class="cost-amount sum field-100">0</div><div class="edit"><a id="100" class="edit-value">edit</a></div>
 				</div>
+				<div id="slide-100" class="edit-pane">
+					<div class="edit-pane-content" id="0">
+						<h3>Enter new amount:</h3>
+    					<div class="edit-pane-input group">
+    						<input class="field" maxlength="5" inputmode="numeric" pattern="[0-9]*">
+    					</div>
+    				</div>
+    					<div class="close"><a class="close-button" id="100">close</a></div>
+        			</div>
+        		</div>
+        		<div class="personal-total group">
+        			<div class="personal-total-name">Your Total Amount</div>
+					<div class="personal-total-amount"></div>
+        		</div>
 				<div class="total group">
-					<div class="total-name">Total</div>
+					<div class="total-name"><span class="max-total">Maximum </span>Total Amount</div>
 					<div class="total-amount"></div>
 				</div>
+			</div>
+			<div class="summer">
+			<?php $e = 200; ?>
+			<?php if( have_rows('summer') ): ?>
+				<h2>Summer</h2>
+				<?php while ( have_rows('summer') ) : the_row(); ?>
+			    	<?php if( get_sub_field('editable') ) { ?>
+			    	<div class="row group editable" id="<?php the_sub_field('expense'); ?>" data-id="<?php echo $e; ?>">
+			    		<div class="row-content">
+						<div class="cost-name"><?php the_sub_field('name'); ?></div><?php $number = get_sub_field('expense'); $amount = number_format ($number, 0, '.', ','); ?><div class="cost-amount-summer sum field-<?php echo $e; ?>" id="<?php the_sub_field('expense'); ?>"><?php echo $number; ?></div><div class="edit"><a id="<?php echo $e; ?>" class="edit-value">edit</a></div>
+				        </div>
+			        	<div id="slide-<?php echo $e; ?>" class="edit-pane" colspan="3">
+			        		<div class="edit-pane-content" id="<?php the_sub_field('expense'); ?>">
+			        			
+			        		<?php if( have_rows('editable_fields') ) : ?>
+			        			<h3>Enter your summer cost for:</h3>
+			        			<?php $field_value = 1; ?>
+			        				<?php while ( have_rows('editable_fields') ) : the_row(); ?>
+			        				<div class="edit-pane-input group"><label for="field-<?php echo $e; ?>-<?php echo $field_value; ?>"><?php the_sub_field('name'); ?></label><input id="field-<?php echo $e; ?>-<?php echo $field_value; ?>" class="field summer-field" maxlength="5" inputmode="numeric" pattern="[0-9]*"></div>
+			        				<?php $field_value++; ?>
+			        			<?php endwhile; ?>
+			        			<?php else : ?>
+			        				<h3>Enter new amount:</h3>
+			        					<div class="edit-pane-input group">
+			        						<input class="field summer-field" maxlength="5" inputmode="numeric" pattern="[0-9]*">
+			        					</div>
+			        			<?php endif; ?>
+			        		</div>
+			        		<div class="close"><a class="close-button" id="<?php echo $e; ?>">close</a></div>
+			        	</div>
+			        	</div>
+				        <?php $e++; ?>
+				    <?php } else { ?>
+				    <div class="row group">
+				<div class="cost-name"><?php the_sub_field('name'); ?></div>
+				    	<?php $number = get_sub_field('expense');
+				    	$amount = number_format ($number, 0, '.', ','); ?>
+				        <div id="<?php the_sub_field('expense'); ?>" class="cost-amount-summer sum"><?php echo $number; ?></div>
+				        </div>
+				    <?php } ?>
+				<?php endwhile; ?>
+					<div class="s-personal-total group">
+	        			<div class="s-personal-total-name">Your Total Amount</div>
+						<div class="s-personal-total-amount"></div>
+	        		</div>
+					<div class="summer-total group">
+						<div class="total-name"><span class="s-max-total">Maximum </span>Total Amount</div>
+						<div class="summer-total-amount"></div>
+					</div>
+				<?php endif; ?>
 			</div>
 			</div>
 			<?php $p++; ?>

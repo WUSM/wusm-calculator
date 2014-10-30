@@ -1,6 +1,6 @@
 <?php
 
-function custom_post_types_init() {
+function custom_post_init() {
 
   $labels = array(
     'name' => 'Calculator',
@@ -38,12 +38,4 @@ function custom_post_types_init() {
   register_post_type( 'calculator', $args );
 
 }	
-add_action( 'init', 'custom_post_types_init' );
-
-/*
- * To get permalinks to work when you activate the theme
- */
-function rewrite_flush() {
-	flush_rewrite_rules();
-}
-add_action( 'after_switch_theme', 'rewrite_flush' );
+add_action( 'init', 'custom_post_init' );

@@ -4,83 +4,180 @@
 	clear: both;
 }
 .calculator {
-	max-width: 600px;
-	margin: 40px auto;
-	min-height: 550px;
+	width: 100%;
+	min-height: 500px;
+	margin: 40px 0;
+	overflow: hidden;
 }
 .select-group {
-	margin-bottom: 15px;
-	width: 100%;
+	display: none;
 }
-.calculator label {
-	display: block;
-	font-family: Helvetica, Arial, sans-serif;
-	font-size: 14px;
-	color: #4d4d4d;
-	line-height: 2;
-	cursor: default;
+#year-select {
+	display: none;
 }
-.calculator select {
-	display: block;
+.dropdown-menu {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	position: relative;
 	font-family: Arial, sans-serif;
-	width: 100%;
-	height: 34px;
-	padding: 6px 12px;
-	font-size: 14px;
-	line-height: 1.42857143;
-	color: #555;
-	background-color: #fff;
-	background-image: none;
-	border: 1px solid #ccc;
-	border-radius: 4px;
+	font-size: 12px;
 	cursor: pointer;
+}
+#generated-select-programs {
+	margin-bottom: 40px;
+}
+#generated-select-year {
+	margin-bottom: 45px;
+}
+li.toggler, li.toggler-year {
+	-webkit-border-radius: 9px;
+	-moz-border-radius: 9px;
+	border-radius: 9px;
+	margin: 0;
+	padding: 0 14px 0 0;
+	border: 1px solid #e0e0e0;
+	background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #f1f0f0), color-stop(50%, #ebebeb), color-stop(100%, #e5e5e5));
+	background-image: -webkit-linear-gradient(#f1f0f0,#ebebeb,#e5e5e5);
+	background-image: -moz-linear-gradient(#f1f0f0,#ebebeb,#e5e5e5);
+	background-image: -o-linear-gradient(#f1f0f0,#ebebeb,#e5e5e5);
+	background-image: linear-gradient(#f1f0f0,#ebebeb,#e5e5e5);
+}
+.choose {
+	color: #980006;
+	text-transform: uppercase;
+	letter-spacing: 1.2px;
+	display: block;
+	z-index: 77;
+	line-height: 1.5;
+	position: relative;
+	padding: 10px 25px 10px 14px;
+	font-weight: bold;
+	cursor: pointer;
+	background: transparent url(../img/arrow-down.png) no-repeat center right;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+}
+.value {
+	display: none;
+}
+li.drop span.choose {
+	background: transparent url(../img/arrow-up.png) no-repeat center right;
+}
+li.drop {
+	border-radius: 9px 9px 0 0;
+}
+.dropdown-menu ul {
+	display: none;
+	z-index: 88;
+	top: 0;
+	right: 0;
+	left: 0;
+	position: absolute;
+	border-color: #e0e0e0;
+	border-style: solid;
+	border-width: 0 1px 1px;
+	-webkit-border-radius: 0 0 9px 9px;
+	-moz-border-radius: 0 0 9px 9px;
+	-ms-border-radius: 0 0 9px 9px;
+	-o-border-radius: 0 0 9px 9px;
+	border-radius: 0 0 9px 9px;
+	overflow: hidden;
+	margin: 40px 0 0;
+	padding: 0;
+}
+#programs-drop {
+	z-index: 99;
+}
+.dropdown-menu ul li {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	padding: 10px 13px;
+	color: #980006;
+	cursor: pointer;
+	background: #fff;
+}
+.dropdown-menu ul li:nth-child(even) {
+	background: #f6f6f6;
+}
+.dropdown-menu ul li:hover {
+	background: #e0e0e0;
+}
+.dropdown-menu .drop ~ ul {
+	display: block;
 }
 .calculator select:focus {
 	border-color: #66afe9;
 	outline: 0;
 }
 .calculator h1 {
-	font-size: 20px;
-	font-family: Arial, sans-serif;
-	padding: 25px 0;
+	font-size: 21px;
+	font-weight: bold;
+	padding: 0;
 	clear: both;
-	font-weight: normal;
+	font-family: Arial, sans-serif;
 }
 .calculator h2 {
-	margin-top: 10px;
+	margin: 10px 0 13px;
+	font-size: 17px;
+	font-weight: bold;
 }
 .programyear {
 	margin-bottom: 50px;
 }
-.edit-link {
+.calculator a.edit-value {
 	cursor: pointer;
+	text-decoration: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+}
+.close {
+	text-align: right;
+	padding: 0 0 10px;
+}
+.calculator a.close-button {
+	text-decoration: none;
+	cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+}
+.calculator a.add-more-close-button {
+	text-decoration: none;
+	cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
 }
 .row {
-	border-bottom: 1px solid lightgrey;
+	border-bottom: 1px solid #e0e0e0;
 	width: 100%;
+}
+.row-content {
+	display: block;
 }
 .cost-name {
 	width: 75%;
-	float: left;
+	display: inline-block;
 	padding: 10px 0;
 }
-.cost-amount {
+.cost-amount, .cost-amount-summer {
 	width: 15%;
-	float: left;
+	display: inline-block;
 	padding: 10px 0;
 }
 .edit {
-	float: left;
+	display: inline-block;
 	width: 10%;
-	padding: 10px 0;
 	text-align: right;
+	padding: 10px 0;
 }
 .edit-pane {
 	clear: both;
 	padding: 0;
-	background: #fff;
-	border-bottom: 1px solid lightgrey;
-	padding-bottom: 15px;
 }
 .edit-pane h3 {
 	padding: 15px 15px 10px;
@@ -98,60 +195,120 @@
 .edit-pane-input {
 	width: 100%;
 	padding: 10px 15px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
 }
 .edit-pane label {
 	float: left;
 	width: 30%;
-	line-height: 2;
+	line-height: 1.8;
 }
 .edit-pane input {
 	float: left;
 	width: 40%;
 	height: 23px;
+	padding: 0 4px;
+	border: 1px solid #e0e0e0;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	-webkit-
 }
-.total {
-	clear: both;
-	padding: 10px 0;
-	width: 100%;
-}
-.total-name {
-	font-weight: bold;
-	float: left;
-	width: 75%;
-}
-.total-amount {
-	width: 25%;
-	float: left;
-	font-weight: bold;
+.add-more {
+	border-bottom: 1px solid #e0e0e0;
 }
 .add-more-name {
 	padding: 10px 0;
-	border-bottom: 1px solid lightgrey;
 	width: 100%;
 }
 .add-more-pane {
 	padding: 0;
-	background: #fff;
-	border-bottom: 1px solid lightgrey;
-	padding-bottom: 15px;
 }
 .add-more-pane p {
 	padding: 10px 15px;
 }
-.add-more-link {
+.calculator a.add-more-link {
 	cursor: pointer;
+	text-decoration: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
 }
 .add-more-input {
 	width: 100%;
 	padding: 10px 15px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.add-more .cost-amount {
+	display: none;
 }
 .add-more label {
 	float: left;
 	width: 30%;
-	line-height: 2;
+	line-height: 1.8;
 }
 .add-more input {
 	float: left;
 	height: 23px;
 	width: 40%;
+	padding: 0 4px;
+	border: 1px solid #e0e0e0;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.personal-total, .total, .summer-total, .s-personal-total {
+	clear: both;
+	padding: 10px 0;
+	width: 100%;
+}
+.personal-total, .s-personal-total {
+	display: none;
+	border-bottom: 1px solid #e0e0e0;
+}
+.max-total, .s-max-total {
+	display: none;
+}
+.total-name, .personal-total-name, .s-personal-total-name {
+	font-weight: bold;
+	float: left;
+	width: 75%;
+}
+.total-amount, .personal-total-amount, .summer-total-amount, .s-personal-total-amount {
+	width: 25%;
+	float: left;
+	font-weight: bold;
+}
+@media screen and (max-width: 518px) {
+	.dropdown-menu ul {
+		position: relative;
+		margin: 0;
+	}
+	.cost-name {
+		width: 65%;
+	}
+	.cost-amount, .cost-amount-summer {
+		width: 25%;
+	}
+	.edit-pane label {
+		width: 50%;
+	}
+	.edit-pane input {
+		width: 50%;
+	}
+	.total-name, .personal-total-name, .s-personal-total-name {
+		width: 65%;
+	}
+	.total-amount, .summer-total-amount {
+		width: 35%;
+	}
+	.add-more label {
+		width: 50%;
+	}
+	.add-more input {
+		width: 50%;
+	}
 }
